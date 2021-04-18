@@ -74,6 +74,8 @@ subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2
   
 ##Which is best??  
 
+The best model utilizes two variables: H, W.
+
 ```{r}
 which.max(summary.out$adjr2)
 ```
@@ -87,10 +89,13 @@ fullup <- lm(Weight~.,data=Perchdata)
 summary(best.model)
 ```
 
+The p-value here is so small showing that this model is an excellent fit.
+
 ```{r}
 anova(fullup,best.model)
 ```
 
+The p-value is 0.879 which means that there is really no difference between using the model that has all of the data vs. the model that uses only 2 variables.
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
@@ -156,6 +161,8 @@ best.model <- lm(Weight~Height+Width,data=Breamdata)
 fullup <- lm(Weight~.,data=Breamdata)
 summary(best.model)
 ```
+The pvalue here is sp small showing that this model is an excellent fit.
+
 
 ```{r}
 anova(fullup,best.model)
@@ -233,6 +240,8 @@ summary(best.model)
 anova(fullup,best.model)
 ```
 
+The p-value is too large to say that there is a difference between the best model which utilizes has four variable and the best model that utilizes two variables 
+
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
@@ -240,3 +249,5 @@ anova(fullup,best.model)
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+The conclusion based on the automatic selection of the variables there is no real difference in using a model with two variables vs. using one with all of the variables. This was identified through the adjusted r-squared as well as the p-value.
